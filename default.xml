@@ -7,8 +7,8 @@
 
     <default revision="poky"/>
 
-    <project remote="github" name="meta-experimental.git" path="source/meta-experimental"/>
-    <project remote="openembedded" name="XMrVertigoX/meta-openembedded.git" path="source/meta-openembedded"/>
+    <project remote="github" name="XMrVertigoX/meta-experimental.git" path="source/meta-experimental"/>
+    <project remote="openembedded" name="meta-openembedded.git" path="source/meta-openembedded"/>
     <project remote="yocto" name="poky.git" path="source/poky"/>
 
 </manifest>
