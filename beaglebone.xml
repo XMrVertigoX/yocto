@@ -9,6 +9,7 @@
 
     <project remote="github" name="XMrVertigoX/meta-experimental.git" path="source/meta-experimental"/>
     <project remote="openembedded" name="meta-openembedded.git" path="source/meta-openembedded"/>
+    <project remote="yocto" name="meta-ti.git" path="source/meta-ti"/>
     <project remote="yocto" name="poky.git" path="source/poky"/>
 
 </manifest>
