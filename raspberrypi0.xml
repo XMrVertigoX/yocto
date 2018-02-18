@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+    <remote name="github" fetch="git://github.com"/>
+    <remote name="yocto" fetch="git://git.yoctoproject.org"/>
+
+    <default revision="rocko"/>
+
+    <project remote="github" name="openembedded/meta-openembedded.git" path="source/meta-openembedded"/>
+    <project remote="github" name="XMrVertigoX/meta-experimental.git" path="source/meta-experimental"/>
+    <project remote="yocto" name="meta-raspberrypi.git" path="source/meta-raspberrypi"/>
+    <project remote="yocto" name="poky.git" path="source/poky"/>
+
+</manifest>
