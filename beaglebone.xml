@@ -6,6 +6,7 @@
 
     <default revision="rocko"/>
 
+    <project remote="github" name="koenkooi/meta-beagleboard.git" path="source/meta-beagleboard"/>
     <project remote="github" name="openembedded/meta-openembedded.git" path="source/meta-openembedded"/>
     <project remote="github" name="XMrVertigoX/meta-hubris.git" path="source/meta-hubris"/>
     <project remote="yocto" name="meta-ti.git" path="source/meta-ti"/>
