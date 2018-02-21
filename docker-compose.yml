@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+  yocto:
+    # build:
+    #   args:
+    #     USER_ID: ${USER_ID}
+    #     USER_NAME: ${USER_NAME}
+    #     GROUP_ID: ${GROUP_ID}
+    #     GROUP_NAME: ${GROUP_NAME}
+    #   context: .
+    image: crops/poky
+    network_mode: bridge
+    # user: "${USER_ID}:${GROUP_ID}"
+    working_dir: ${PWD}
+    # command: bash --init-file ./poky/oe-init-build-env
+    volumes:
+      - ${PWD}:${PWD}
+      - deploy:/var/tmp/yocto/deploy
+      - downloads:/var/tmp/yocto/downloads
+      - sstate-cache:/var/tmp/yocto/sstate-cache
+
+volumes:
+  deploy:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=192.168.178.123
+      device: ":/srv/yocto/deploy"
+  downloads:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=192.168.178.123
+      device: ":/srv/yocto/downloads"
+  sstate-cache:
+    driver: local
+    driver_opts:
+      type: nfs4
+      o: addr=192.168.178.123
+      device: ":/srv/yocto/sstate-cache"
