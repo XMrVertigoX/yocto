@@ -1,22 +1,11 @@
 #!/bin/bash
 
-export USER_ID=$(id -u)
-export USER_NAME=$(id -nu)
-export GROUP_ID=$(id -g)
-export GROUP_NAME=$(id -ng)
-
-export IMAGE=yocto
-
-for command in $@; do
-	case $command in
-		build )
-			docker-compose --file $(dirname $0)/docker-compose.yml build
-			;;
-		run )
-			docker-compose --file $(dirname $0)/docker-compose.yml run --rm ${IMAGE}
-			;;
-		* )
-			echo "unknown command"
-			;;
-	esac
-done
+docker run \
+       --interactive \
+       --mount=type=bind,source=$(pwd),target=/workdir \
+       --mount=type=volume,src=downloads,dst=/var/tmp/yocto/downloads,volume-driver=local,volume-opt=type=nfs4,volume-opt=device=:/srv/yocto/downloads,volume-opt=o=addr=192.168.178.123 \
+       --mount=type=volume,src=sstate-cache,dst=/var/tmp/yocto/sstate-cache,volume-driver=local,volume-opt=type=nfs4,volume-opt=device=:/srv/yocto/sstate-cache,volume-opt=o=addr=192.168.178.123 \
+       --rm \
+       --tty \
+       --workdir=/workdir \
+       crops/poky
